@@ -15,7 +15,7 @@ const createProduct = async(req, res, next) => { // When you're working with dat
         const db = client.db(); // db() takes the connection string provided in const URL and gives access to the db.
         const result = await db.collection('products').insertOne(newProduct); // If the collection doesn't exist in the db, a new collection is created and if it exists a new document is added to the collection.
     } catch (error) {
-        return res.status(422).json({ message: 'Could not store data, please check your entries' });
+        return res.status(422).json({ message: 'Could not store data' });
     };
     res.json(newProduct);
 
