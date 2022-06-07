@@ -10,7 +10,7 @@ const createProduct = async(req, res, next) => { // When you're working with dat
 
     const client = new MongoClient(URI); // This line just tells the mongodb/client which server we want to connnect to. Initiating the connection doesn't take place here.
 
-    try {
+    try { // Using a try/catch block because connecting to the server/database can fail. And in case of a failure, we want to catch any error that might have occured in the process
         await client.connect(); // This is the line that establishes the connection to the mongodb server.
         const db = client.db(); // db() takes the connection string provided in const URL and gives access to the db.
         const result = await db.collection('products').insertOne(newProduct); // If the collection doesn't exist in the db, a new collection is created and if it exists a new document is added to the collection.
