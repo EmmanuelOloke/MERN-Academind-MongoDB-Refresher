@@ -22,4 +22,10 @@ const createProduct = async(req, res, next) => {
     res.json(result);
 };
 
+const getProducts = async(req, res, next) => {
+    const products = await Product.find().exec(); // We use find() on our contructor function Product and it returns and Array by default. .exec() turns it into a promise.
+    res.json(products);
+}
+
 exports.createProduct = createProduct;
+exports.getProducts = getProducts;
