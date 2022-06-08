@@ -16,7 +16,7 @@ const createProduct = async(req, res, next) => {
         name: req.body.name,
         price: req.body.price
     });
-
+    console.log(typeof(createdProduct._id));
     const result = await createdProduct.save(); //Await because interacting with the db can take sometime. To create a product and store it in the database, we have to save the product. save() is a mongoose method that does all the heavy lifting of saving a document behind the scenes
 
     res.json(result);
